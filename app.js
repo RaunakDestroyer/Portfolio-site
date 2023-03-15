@@ -3,7 +3,10 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const ejs = require("ejs");
+const http = require('http');
 
+const hostname = '0.0.0.0';
+const port = 3000;
 const app = express();
 
 app.set('view engine', 'ejs');
@@ -27,6 +30,6 @@ app.get("/about", function(req, res) {
   res.render("about");
 });
 
-app.listen(3000 || process.env.PORT, function() {
-  console.log("Server started on port 3000");
+app.listen(port,hostname, function() {
+  console.log("Server started at http://${hostname}:${port}/");
 });
